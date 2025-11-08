@@ -52,6 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       ? Alignment.centerRight
                       : Alignment.centerLeft,
                   child: Container(
+                    margin: EdgeInsets.only(left: 5, bottom: 12),
+                    padding: EdgeInsets.all(12),
+
+                    decoration: BoxDecoration(
+                      color: isUser ? Colors.blue : Colors.grey[300],
+                    ),
                     child: Text(
                       msg["text"]!,
                       style: TextStyle(
