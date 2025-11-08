@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Tunisian Chat GPT")),
+      appBar: AppBar(title: Text("Mini ChatBot")),
       body: Column(
         children: [
           Expanded(
@@ -57,6 +57,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     decoration: BoxDecoration(
                       color: isUser ? Colors.blue : Colors.grey[300],
+                      borderRadius: isUser
+                          ? BorderRadius.only(
+                              topLeft: Radius.circular(25),
+                              bottomRight: Radius.circular(25),
+                              bottomLeft: Radius.circular(25),
+                            )
+                          : BorderRadius.only(
+                              topRight: Radius.circular(25),
+                              bottomRight: Radius.circular(25),
+                              bottomLeft: Radius.circular(25),
+                            ),
                     ),
                     child: Text(
                       msg["text"]!,
@@ -69,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
-          if (isload) Center(child: CircularProgressIndicator()),
+
           Row(
             children: [
               Expanded(
@@ -87,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              IconButton(onPressed: sendMessage, icon: Icon(Icons.send)),
+              if (isload) CircularProgressIndicator(),
             ],
           ),
         ],
