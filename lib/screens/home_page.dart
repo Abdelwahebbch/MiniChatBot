@@ -98,11 +98,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              if (isload) CircularProgressIndicator(),
+              isLoadOrSend(isload),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  Widget isLoadOrSend(bool isload) {
+    return Container(
+      margin: EdgeInsets.all(5),
+      child: isload
+          ? const CircularProgressIndicator()
+          : IconButton(
+              onPressed: sendMessage,
+              icon: Icon(Icons.send, size: 35),
+            ),
     );
   }
 }
